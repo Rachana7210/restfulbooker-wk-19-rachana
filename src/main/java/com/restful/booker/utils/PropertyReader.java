@@ -3,9 +3,6 @@ package com.restful.booker.utils;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-/**
- * Created by Jay
- */
 public class PropertyReader {
 
     /*Rules fo implementing singleton design pattern
@@ -45,7 +42,7 @@ public class PropertyReader {
                 return prop.getProperty(propertyName);
             }
         } catch (Exception e) {
-            System.out.println("Property not found");
+                System.out.println("Property not found");
         }
         return null;
     }

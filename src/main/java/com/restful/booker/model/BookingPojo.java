@@ -1,6 +1,14 @@
 package com.restful.booker.model;
 
+
 public class BookingPojo {
+
+    private String firstname;
+    private String lastname;
+    private int totalprice;
+    private boolean depositpaid;
+    private BookingDates bookingdates;
+    private String additionalneeds;
 
     public String getFirstname() {
         return firstname;
@@ -50,35 +58,27 @@ public class BookingPojo {
         this.additionalneeds = additionalneeds;
     }
 
-    private String firstname;
-    private String lastname;
-    private int totalprice;
-    private boolean depositpaid;
-    private BookingDates bookingdates;
-    private String additionalneeds;
-
-
-    public static class BookingDates {
-        private String checkin;
-        private String checkout;
-
-        public String getCheckin() {
-            return checkin;
+    public static BookingPojo getRequestBody(String firstname, String lastname, Integer totalprice, Boolean depositpaid,
+                                             BookingDates bookingDates, String additionalneeds) {
+        BookingPojo bookingPojo = new BookingPojo();
+        if (firstname != null) {
+            bookingPojo.setFirstname(firstname);
         }
-
-        public void setCheckin(String checkin) {
-            this.checkin = checkin;
+        if (lastname != null) {
+            bookingPojo.setLastname(lastname);
         }
-
-        public String getCheckout() {
-            return checkout;
+        if (totalprice != null) {
+            bookingPojo.setTotalprice(totalprice);
         }
-
-        public void setCheckout(String checkout) {
-            this.checkout = checkout;
+        if (depositpaid != null) {
+            bookingPojo.setDepositpaid(depositpaid);
         }
-
+        if (bookingDates != null) {
+            bookingPojo.setBookingdates(bookingDates);
+        }
+        if (additionalneeds != null) {
+            bookingPojo.setAdditionalneeds(additionalneeds);
+        }
+        return bookingPojo;
     }
-
-
 }

@@ -1,6 +1,10 @@
 package com.restful.booker.model;
 
-public class AuthorisationPojo {
+
+public class AuthPojo {
+    private String username;
+    private String password;
+
     public String getUsername() {
         return username;
     }
@@ -17,6 +21,10 @@ public class AuthorisationPojo {
         this.password = password;
     }
 
-    private String username;
-    private String password;
+    public static AuthPojo getAuthBody(String username, String password) {
+        AuthPojo authPojo = new AuthPojo();
+        authPojo.setUsername(username);
+        authPojo.setPassword(password);
+        return authPojo;
+    }
 }
